@@ -20,7 +20,7 @@ jobs:
         run: |
           rm -rf "./gh-pages-docs/${{ matrix.builds }}"
           mkdir -p "./gh-pages-docs/${{ matrix.builds }}"
-          cat "${{ matrix.builds }}" > "./gh-pages-docs/${{ matrix.builds }}/${{ matrix.builds }}.txt"
+          echo "${{ matrix.builds }}" > "./gh-pages-docs/${{ matrix.builds }}/${{ matrix.builds }}.txt"
         
       - name: Deploy to GitHub Pages
         if: success()

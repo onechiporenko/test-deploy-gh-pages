@@ -6,21 +6,19 @@ on:
 
 jobs:
 
-  loopcheck:
-    strategy:
-      matrix:
-        builds: [plain-html,paper,bs4,bs5]
+  deploy:
     runs-on: [ubuntu-latest]
-    steps:
-      - name: test
+    steps:  
+      - uses: actions/checkout@v3
+      - name: Deploy
         run: |
-          echo ${{ matrix.builds }}
-      - uses: actions/checkout@v1
-      - name: Compile .css from .scss
-        run: |
-          rm -rf "./gh-pages-docs/${{ matrix.builds }}"
-          mkdir -p "./gh-pages-docs/${{ matrix.builds }}"
-          echo "${{ matrix.builds }}" > "./gh-pages-docs/${{ matrix.builds }}/${{ matrix.builds }}.txt"
+          rm -rf "./gh-pages-docs/"
+          mkdir -p "./gh-pages-docs/bs5"
+          echo "bs5" > "./gh-pages-docs/bs5/bs5.txt"
+          mkdir -p "./gh-pages-docs/bs4"
+          echo "bs4" > "./gh-pages-docs/bs4/bs4.txt"
+          mkdir -p "./gh-pages-docs/plain-html"
+          echo "plain-html" > "./gh-pages-docs/plain-html/plain-html.txt"
         
       - name: Deploy to GitHub Pages
         if: success()

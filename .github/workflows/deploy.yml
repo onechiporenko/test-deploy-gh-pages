@@ -12,7 +12,7 @@ jobs:
       - name: Publish report
         run: |
           chmod +x deploy.sh
-          ./deploy.sh default
+          ./deploy.sh paper
           ./deploy.sh plain-html
           ./deploy.sh bs4
           ./deploy.sh bs5

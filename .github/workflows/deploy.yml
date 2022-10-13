@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Publish report
         run: |
-          chmod +x deploy.sh
+          chmod +x ./deploy.sh
           ./deploy.sh paper
           ./deploy.sh plain-html
           ./deploy.sh bs4
